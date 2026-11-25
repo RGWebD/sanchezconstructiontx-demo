@@ -95,6 +95,7 @@ GROUPS=[('build','Build &amp; Manage','Commercial and residential projects, remo
         ('exterior','Exterior &amp; Site','Roofing, masonry, concrete, asphalt and the ground around the building.'),
         ('ranch','Ranch, Hauling &amp; Assembly','Ranch services, septic, dump trailer, moving and assembly.')]
 NS=len(SERV)
+WIDE={'commercial','cabin','roofing','parking'}
 # Reviews: Google (full text, GBP) + old-site widget (Marisela); verbatim
 REV=[
  ('Annie Serna','Google review','I contacted Sanchez Construction Services when I needed the roof replaced. Mr. Sanchez and his staff were prompt and very professional in their initial visit and with the estimate. Upon agreeing to the job, they were on it the very next day and finished within two days. Not only did they replace the roof; they removed any all all debris from the property. We have had strong rain and winds since the roof was replaced and there have not been any problems with it. I have since asked Mr. Sanchez and crew to do other jobs and the results are always the same. Timely, professional and work is of the best quality. The professionalism of Sanchez Construction is like none I have ever seen. I recommend them for any and all jobs without any hesitation whatsoever.',
@@ -221,7 +222,7 @@ home=f'''<div class="loader" aria-hidden="true"><div class="gate l"></div><div c
 <section class="sec" aria-labelledby="go-h"><div class="wrap"><div class="head-row"><div><p class="kicker">Explore</p><h2 class="h2 split" id="go-h">Pick a <em>direction.</em></h2></div></div>
 <div class="cards">
 <a class="card tilt" href="services.html">{pic('drywall','Crew installing drywall')}<span class="arr" aria-hidden="true">→</span><span class="in2"><small>{NS} SERVICES</small><h3>Services</h3><p>The full list, plus how a build runs from pre-construction to walkthrough.</p></span></a>
-<a class="card tilt" href="projects.html">{pic('gazebo','Gazebo with string lights at dusk')}<span class="arr" aria-hidden="true">→</span><span class="in2"><small>GALLERY</small><h3>Projects</h3><p>Real photos from real jobs, plus a bathroom before &amp; after.</p></span></a>
+<a class="card tilt" href="projects.html">{pic('glazing','Glass double doors at a commercial entrance')}<span class="arr" aria-hidden="true">→</span><span class="in2"><small>GALLERY</small><h3>Projects</h3><p>Real photos from real jobs, plus a bathroom before &amp; after.</p></span></a>
 <a class="card tilt" href="reviews.html">{pic('furniture-assembly','Crew member assembling office desks')}<span class="arr" aria-hidden="true">→</span><span class="in2"><small>5.0 ★ GOOGLE</small><h3>Reviews</h3><p>What homeowners and businesses in Laredo say.</p></span></a>
 <a class="card tilt" href="contact.html">{pic('moving-truck','Sanchez Construction Services truck',attrs='style="object-position:88% 50%"')}<span class="arr" aria-hidden="true">→</span><span class="in2"><small>MARKET ST · LAREDO</small><h3>Contact</h3><p>Call, email or visit. Hours, map and a quick quote form.</p></span></a>
 </div></div></section>'''
@@ -230,7 +231,8 @@ home=f'''<div class="loader" aria-hidden="true"><div class="gate l"></div><div c
 def svc_card(i,s):
     sid_,n,g,ph,d,alt=s
     media=f'<div class="ph">{pic(ph,alt)}</div>' if ph else f'<div class="ph type" aria-hidden="true"><span>{"".join(w[0] for w in n.replace("&","").split()[:2])}</span></div>'
-    return f'<article class="svc" id="{sid_}" data-r>{media}<div class="bd"><span class="ix">{sid(i)} / {NS}</span><h3>{e(n)}</h3><p>{e(d)}</p></div></article>'
+    wide=' wide' if sid_ in WIDE else ''
+    return f'<article class="svc{wide}" id="{sid_}" data-r>{media}<div class="bd"><span class="ix">{sid(i)} / {NS}</span><h3>{e(n)}</h3><p>{e(d)}</p></div></article>'
 grph=''
 k=0
 for gi,(g,gt,gd) in enumerate(GROUPS):
@@ -242,14 +244,14 @@ phases=[('Pre-Construction','Plan &amp; budget','This phase includes constant mo
         ('Construction','Build &amp; manage','Working with trusted subcontractors, we keep them accountable throughout the entire build. From sequence to production and quality control, we stay focused on the goal.'),
         ('Post-Construction','Close out','The last step in any build. This phase includes site cleanup, systems training, final inspections and move-in coordination. After completion, we have a final walkthrough to ensure your complete satisfaction.')]
 tlh=''.join(f'<div class="tl-step"><div class="stake">{i+1}</div><div data-r><span class="tag">Phase {i+1} · {t}</span><h3>{n}</h3><p>{d}</p></div></div>' for i,(n,t,d) in enumerate(phases))
-services=phero('suspended-ceiling','We do it all',f'{NS} services. <span style="color:var(--y)">One call.</span>','Commercial and residential construction, interiors, exterior and site work, ranch and hauling. Here is everything on our list, and how a build runs.','Services','New suspended ceiling with panel lights in a commercial space')+f'''
+services=phero('dump-trailer-loader','We do it all',f'{NS} services. <span style="color:var(--y)">One call.</span>','Commercial and residential construction, interiors, exterior and site work, ranch and hauling. Here is everything on our list, and how a build runs.','Services','Wheel loader filling a dump trailer with material')+f'''
 <nav class="svc-nav" aria-label="Service groups"><div class="wrap">{''.join(f'<a href="#{g}">{gt}</a>' for g,gt,_ in GROUPS)}<a href="#process">How it works</a></div></nav>
 {grph}
 <section class="sec light bp-l" id="process" aria-labelledby="proc-h" style="margin-top:80px;scroll-margin-top:120px"><div class="wrap"><div class="head-row"><div><p class="kicker">How it works</p><h2 class="h2 split" id="proc-h">Three phases. <em>No loose ends.</em></h2></div><p class="lead" data-r>Every build follows the same path, from the first budget check to the final walkthrough.</p></div>
 <div class="tl"><div class="tl-line" aria-hidden="true"><i></i></div>{tlh}</div></div></section>'''
 
 # ---------- PROJECTS ----------
-GAL=[('cabin-finish-out','Cabin finish out','build'),('roofing-shingles','Roofing','exterior'),('gazebo','Gazebo assembly','assembly'),('painting','Painting','interior'),('parking-lot-aerial','Parking lot restriping','exterior'),
+GAL=[('roofing-shingles','Roofing','exterior'),('gazebo','Gazebo assembly','assembly'),('painting','Painting','interior'),('parking-lot-aerial','Parking lot restriping','exterior'),
      ('flooring-tile','Flooring installation','interior'),('dump-trailer-loader','Dump trailer services','ranch'),('glazing','Glazing','interior'),('masonry','Masonry','exterior'),('furniture-assembly','Furniture assembly','assembly'),
      ('remodel-arch','Remodels','build interior'),('cement-slab','Cement slabs','exterior'),('suspended-ceiling','Suspended ceiling','interior'),('ranch-services','Ranch services','ranch'),('roofing-deck','Roofing','exterior'),
      ('block-fence-1','Block fence','exterior'),('flooring-wood','Flooring','interior'),('asphalt','Asphalt','exterior'),('dump-trailer-gravel','Dump trailer services','ranch'),('drywall','Drywall','interior'),('block-fence-2','Block fence','exterior'),('moving-truck','Moving services','ranch')]
@@ -260,7 +262,7 @@ projects=phero('cabin-finish-out','Our work','Built for <span style="color:var(-
 <section class="sec light" aria-labelledby="ba-h"><div class="wrap ba-wrap">
 <div><p class="kicker">Before &amp; after</p><h2 class="h2 split" id="ba-h">Tub to <em>walk-in shower.</em></h2><p class="lead" data-r style="margin-top:22px">A dated tub-and-tile bath turned into a walk-in shower with marble-look tile, a niche, black fixtures and a frameless glass door. Drag the handle to compare.</p>
 <div class="ctas" data-r style="margin-top:26px"><a class="btn dark" href="services.html#bathroom">Bathroom remodeling</a></div></div>
-<div class="ba" data-r="zoom"><img src="assets/img/bath-before.webp" width="860" height="1264" alt="Before: tub with sliding glass doors and beige tile" loading="lazy"><img class="aft" src="assets/img/bath-after.webp" width="860" height="1264" alt="After: walk-in shower with marble-look tile and frameless glass" loading="lazy"><span class="knob" aria-hidden="true"></span><input type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider"></div>
+<div class="ba" data-r="zoom"><img src="assets/img/bath-before.webp" width="860" height="974" alt="Before: tub with sliding glass doors and beige tile" loading="lazy"><img class="aft" src="assets/img/bath-after.webp" width="860" height="974" alt="After: walk-in shower with marble-look tile and frameless glass" loading="lazy"><span class="knob" aria-hidden="true"></span><span class="ba-l b" aria-hidden="true">Before</span><span class="ba-l a" aria-hidden="true">After</span><input type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider"></div>
 </div></section>
 <section class="sec" aria-labelledby="gal-h"><div class="wrap"><div class="head-row"><div><p class="kicker">Gallery</p><h2 class="h2 split" id="gal-h">On the <em>job.</em></h2></div><p class="lead" data-r>Tap any photo to open it full size.</p></div>
 <div class="filters" role="group" aria-label="Filter projects">{''.join(f'<button type="button" data-f="{f}" aria-pressed="{"true" if f=="all" else "false"}">{t}</button>' for f,t in filters)}</div>
@@ -269,7 +271,7 @@ projects=phero('cabin-finish-out','Our work','Built for <span style="color:var(-
 
 # ---------- REVIEWS ----------
 rch=''.join(f'<figure class="rcard" data-r><span class="q" aria-hidden="true">”</span><div class="st" aria-label="5 out of 5 stars">★★★★★</div><blockquote>{e(t)}</blockquote><figcaption><cite>{e(n)} · {src}</cite></figcaption></figure>' for n,src,t,_ in REV)
-reviews=phero('masonry','Reviews','Five stars. <span style="color:var(--y)">Nineteen times.</span>','Homeowners and businesses in Laredo rate Sanchez Construction Services 5.0 from 19 reviews on Google. Here are a few in their own words.','Reviews','Crew in safety vests working along a block wall')+f'''
+reviews=phero('masonry','Reviews','Rated 5.0. <span style="color:var(--y)">Built on trust.</span>','Homeowners and businesses in Laredo rate Sanchez Construction Services 5.0 from 19 reviews on Google. Here are a few in their own words.','Reviews','Crew in safety vests working along a block wall')+f'''
 <section class="sec light bp-l" aria-labelledby="rv2-h"><div class="wrap">
 <div class="head-row"><div><p class="kicker">In their words</p><h2 class="h2 split" id="rv2-h">Timely. Professional. <em>Trustworthy.</em></h2></div>
 <div class="big-rate" data-r="right" style="max-width:340px"><div class="n">5.0</div><div class="st" aria-label="5 out of 5 stars">★★★★★</div><p>19 Google reviews</p><p style="margin-top:16px"><a class="btn dark sm" href="{GMAPS}" target="_blank" rel="noopener">See all on Google</a></p></div></div>
@@ -285,7 +287,7 @@ contact=phero('moving-truck','Contact','Tell us about <span style="color:var(--y
 <h2 class="h2 split" id="c-h" style="margin-bottom:40px">Give us <em>a call!</em></h2>
 <div class="cgrid">
 <div class="cbox" data-r><p class="kicker">Reach us</p>
-<p style="font:900 clamp(30px,3.4vw,46px)/1 var(--disp);font-stretch:140%;margin:0 0 10px"><a href="{TEL}" style="text-decoration:none">{PHONE}</a></p>
+<p style="font:900 clamp(26px,2.6vw,38px)/1 var(--disp);font-stretch:125%;margin:0 0 10px;white-space:nowrap"><a href="{TEL}" style="text-decoration:none">{PHONE}</a></p>
 <p><a href="mailto:{EMAIL}">{EMAIL}</a></p><p>{NAME}<br>2507 Market Street, Laredo, Texas 78043</p>
 <div class="ctas">{b_call('dark')}<a class="btn" href="{DIR}" target="_blank" rel="noopener">Get directions</a></div>
 <h3 style="font-size:22px;margin:34px 0 10px">Hours</h3><p style="margin:0 0 6px">{STATUS.replace('class="status"','class="status" style="background:#18191C;color:#fff"')}</p><ul class="hours">{hours}</ul></div>
