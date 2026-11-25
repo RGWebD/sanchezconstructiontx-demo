@@ -1,0 +1,45 @@
+# Sanchez Construction Services
+> General contractor in Laredo, Texas. Commercial and residential construction, including new construction and repairs/restorations. Rated 5.0 from 19 Google reviews.
+
+- Address: 2507 Market St, Laredo, TX 78043
+- Phone: (956) 206-3885
+- Email: jcsanc@sbcglobal.net
+- Hours: Monday–Friday 8 AM–6 PM; Saturday and Sunday closed
+- Google Maps: https://maps.google.com/?cid=174853116217362907
+
+## Services (23)
+- Commercial Construction: New construction and repairs/restorations for businesses. Occupied, fully operational job sites are never a problem, and multi-phase jobs can be planned, managed and built.
+- Residential Construction: Construction and repair work for homes, from a single fix to a larger project.
+- Remodels: Interior remodels that rework existing rooms and spaces.
+- Cabin Finish Outs: Interior finish outs that turn a shell into a finished, livable cabin.
+- Painting: Interior and exterior painting.
+- Drywall Repairs & Installation: Drywall installation and repairs.
+- Flooring Installation: Flooring installation, including tile and wood-look plank floors.
+- Bathroom Remodeling: Bathroom remodels, from tub-and-tile to a finished walk-in shower.
+- Suspended Ceiling Installation: Suspended (drop) ceiling grid and tile installation for commercial spaces.
+- Glazing: Glass and glazing work, such as storefront-style glass doors.
+- Roofing Repairs & Installations: Roof repairs and installations, including new shingle roofs.
+- Masonry: Masonry work on block and brick walls.
+- Block Fences: Concrete block fence construction.
+- Cement Slabs: Concrete slab pours and finishing.
+- Asphalt: Asphalt paving.
+- Parking Lot Asphalt & Restriping: Parking lot asphalt and restriping, with stalls, arrows and hatched zones.
+- Landscaping Services: Landscaping services for residential and commercial properties.
+- Ranch Services: Ranch work and land clearing with heavy equipment.
+- Septic Tank Services: Septic tank services.
+- Dump Trailer Services: Dump trailer services for hauling material such as gravel.
+- Moving Services: Moving services with a stake-bed truck.
+- Furniture Assembly: Furniture assembly, including office workstations.
+- Gazebo Assembly: Gazebo assembly for backyards and outdoor living areas.
+
+## How a build runs
+- Pre-Construction: budgets, schedules and close work with the design team.
+- Construction: trusted subcontractors kept accountable; sequence, production and quality control.
+- Post-Construction: site cleanup, systems training, final inspections, move-in coordination and a final walkthrough.
+
+## Pages
+- [Home](https://rgwebd.github.io/sanchezconstructiontx-demo/): overview, featured parking lot project, reviews
+- [Services](https://rgwebd.github.io/sanchezconstructiontx-demo/services.html): all services and the three-phase process
+- [Projects](https://rgwebd.github.io/sanchezconstructiontx-demo/projects.html): photo gallery and bathroom before/after
+- [Reviews](https://rgwebd.github.io/sanchezconstructiontx-demo/reviews.html): Google reviews quoted word for word
+- [Contact](https://rgwebd.github.io/sanchezconstructiontx-demo/contact.html): phone, email, hours, map, quote form, FAQ
