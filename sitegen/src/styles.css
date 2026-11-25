@@ -74,7 +74,7 @@ p{margin:0 0 1em}
 .loader.gone{display:none}
 /* hero (home) */
 .hero{position:relative;min-height:calc(100svh - 74px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.hero .bg{position:absolute;inset:-6% 0 0;z-index:-2}
+.hero .bg{position:absolute;inset:-6% 0 0;z-index:-2;overflow:hidden}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;animation:kb 18s var(--ease) both}
 @keyframes kb{from{transform:scale(1.16)}to{transform:scale(1.02)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(12,13,15,.94) 0%,rgba(12,13,15,.78) 38%,rgba(12,13,15,.15) 75%),linear-gradient(0deg,rgba(12,13,15,.9),transparent 45%)}
